@@ -6,6 +6,7 @@
 var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api');
+  // gzippo = require('gzippo');
 
 var app = express();
 
@@ -20,6 +21,9 @@ app.configure(function(){
   });
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  // app.use(gzippo.staticGzip(__dirname + '/public'));
+  // app.use(gzippo.compress());
+  // app.use(gzippo.staticGzip(__dirname + '/public'));
   app.use(express.static(__dirname + '/public'));
   app.use(app.router);
 });
