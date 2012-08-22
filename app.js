@@ -5,8 +5,8 @@
 
 var express = require('express'),
   routes = require('./routes'),
-  api = require('./routes/api');
-  // gzippo = require('gzippo');
+  api = require('./routes/api'),
+  connect = require('connect');
 
 var app = express();
 
