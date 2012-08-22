@@ -10,6 +10,8 @@ var io = require('socket.io').listen(server);
 var routes = require('./routes');
 var api = require('./routes/api');
 var connect = require('connect');
+var mongoose = require('mongoose');
+var db = mongoose.createConnection('localhost', 'test');
 
 // Configuration
 
@@ -26,6 +28,38 @@ app.configure(function(){
   app.use(connect.favicon(__dirname + '/public/favicon.ico', { maxAge: 31557600000 }));
   app.use(express.static(__dirname + '/public', { maxAge: 31557600000 }));
   app.use(app.router);
+});
+
+// Database handling
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+	console.log("Database opened!");
+	var kittySchema = new mongoose.Schema({
+    	name: String
+	});
+	// var Kitten = db.model('Kitten', kittySchema);
+	// var silence = new Kitten({ name: 'Silence' })
+	// console.log(silence.name) // 'Silence'
+	
+	kittySchema.methods.speak = function () {
+	  var greeting = this.name ? 'Meow name is ' + this.name : 'I dont have a name';
+	  console.log(greeting);
+	}
+	
+	var Kitten = db.model('Kitten', kittySchema);
+	
+	var fluffy = new Kitten({ name: 'fluffy' });
+	fluffy.speak() // "Meow name is fluffy"
+	
+	fluffy.save(function (err) {
+  		if (err) console.log(err); // TODO handle the error
+  		console.log('meow');
+	});
+	
+	Kitten.find({ name: /a/i }, function (a, b, c) {
+		console.log(a);
+	});
 });
 
 app.configure('development', function(){
