@@ -3,12 +3,13 @@
  * Module dependencies.
  */
 
-var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api'),
-  connect = require('connect');
-
+var express = require('express');
 var app = express();
+var server = app.listen(3000);
+var io = require('socket.io').listen(server);
+var routes = require('./routes');
+var api = require('./routes/api');
+var connect = require('connect');
 
 // Configuration
 
@@ -49,7 +50,12 @@ app.get('*', routes.index);
 
 // Start server
 
-app.listen(app.get("port"), function(){
-  console.log("Express server listening on port " + app.get("port"));
-  // console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+io.sockets.on('connection', function (socket) {
+	socket.emit('news', { hello: 'world' });
+	socket.on('my other event', function (data) {
+		console.log(data);
+	});
+	socket.on('disconnect', function (socket) {
+		console.log('disconnected');
+	});
 });
