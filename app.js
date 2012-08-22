@@ -22,7 +22,8 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(connect.compress());
-  app.use(express.static(__dirname + '/public'));
+  app.use(connect.favicon(__dirname + 'public/favicon.ico'));
+  app.use(express.static(__dirname + '/public', { maxAge: 31557600000 }));
   app.use(app.router);
 });
 
