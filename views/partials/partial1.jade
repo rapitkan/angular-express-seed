@@ -1,1 +1,12 @@
-h2 Sivu 1
+form
+  fieldset
+    legend Employee
+    
+    label Name
+    input(type='text', class='six', placeholder='Write your name here', ng-model='name');
+    
+    label Age
+    input(type='text', class='six', placeholder='Write your age here', ng-model='age');
+
+    a(href='#', class='medium button', ng-click='save()') Save
+    {{testi}}

@@ -12,8 +12,19 @@ function AppCtrl($scope, $http) {
   });
 }
 
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
+function MyCtrl1($scope) {
+	console.info($scope);
+	$scope.save = function () {
+		var socket = io.connect('http://localhost');
+		socket.emit('save', {
+			name: $scope.name,
+			age: $scope.age
+		});
+		console.info(socket);
+		console.info($scope.name, $scope.age);
+	};
+}
+// MyCtrl1.$inject = [];
 
 
 function MyCtrl2() {
