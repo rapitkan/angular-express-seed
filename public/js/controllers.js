@@ -10,6 +10,9 @@ function AppCtrl($scope, $http) {
   error(function(data, status, headers, config) {
     $scope.name = 'Error!'
   });
+  	setTimeout(function() {
+		$('#featuredContent').orbit({ fluid: '16x9' });	
+	}, 2000);
 }
 
 function MyCtrl1($scope) {

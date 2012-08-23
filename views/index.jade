@@ -4,22 +4,32 @@ block body
   div(ng-controller='AppCtrl')
     .row
       .twelve.columns
-        h1 Testisovellus (node.js)
+        h1 Kyökkiopus
     .row
       .twelve.columns
         ul.nav-bar
           li.active
-            a(href='view1') Linkki 1
+            a(href='view1') Alkupalat
           li
-            a(href='view2') Linkki 2
+            a(href='view2') Pääruoat
           li
-            a(href='view3') Linkki 3
+            a(href='view3') Jälkiruoat
     .row
-      .twelve.columns        
+      .eight.columns
         div(ng-view)
-
-  script(src='js/lib/angular/angular-1.0.1.min.js')
-  script(src='js/lib/angular/angular-resource-1.0.1.min.js')
+      .four.columns
+        h5 Sinappinen naudanlihapata
+        ul
+          li 1 dl suolaa
+          li 2 dl sokeria
+    .row
+      .twelve.columns
+        .panel
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin metus vel ipsum consequat at commodo leo aliquet. Aliquam non ante eu quam ultrices mattis. Cras ut massa orci. Vestibulum ut eros lorem, sed auctor erat. Proin erat arcu, scelerisque sed eleifend in, tincidunt ut risus. Aenean vestibulum viverra commodo. Integer dapibus tortor et quam malesuada egestas. Cras ultricies, tellus in auctor tincidunt, odio urna dapibus nisl, sit amet faucibus lectus libero viverra ante. Duis pretium suscipit pulvinar. Etiam fringilla nisl id lorem suscipit in fermentum quam interdum. Praesent adipiscing nunc vel turpis placerat aliquet.
+          p Aliquam malesuada magna sed quam mattis ut accumsan velit ornare. Suspendisse nec justo dolor. Morbi vel est erat. Morbi tincidunt quam consectetur nisi blandit ornare. Maecenas odio odio, elementum quis accumsan sed, rhoncus sit amet nibh. Vivamus vitae dolor libero, sed gravida quam. Phasellus sagittis neque sed odio pellentesque gravida. Donec sit amet scelerisque erat. Duis iaculis metus felis. Vestibulum ante odio, condimentum a ultrices sit amet, tincidunt id felis. 
+  script(src='http://code.angularjs.org/angular-1.0.1.min.js')
+  script(src='http://code.angularjs.org/angular-resource-1.0.1.min.js')
+  script(src='http://code.jquery.com/jquery-1.8.0.min.js')
   script(src='js/app.js')
   script(src='js/services.js')
   script(src='js/controllers.js')
@@ -27,4 +37,5 @@ block body
   script(src='js/directives.js')
   script(src='/socket.io/socket.io.js')
   script(src='foundation-3/javascripts/modernizr.foundation.js')
+  script(src='foundation-3/javascripts/jquery.foundation.orbit.js')
   script(src='js/main.js')
