@@ -18,7 +18,7 @@
 
   mongoose = require('mongoose');
 
-  db = mongoose.createConnection('localhost', 'test');
+  db = mongoose.createConnection('localhost', 'cookbook');
 
   app.configure(function() {
     app.set('port', 3000);

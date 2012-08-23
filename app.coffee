@@ -9,7 +9,7 @@ routes = require './routes'
 api = require './routes/api'
 connect = require 'connect'
 mongoose = require 'mongoose'
-db = mongoose.createConnection('localhost', 'test')
+db = mongoose.createConnection('localhost', 'cookbook')
 
 # Configuration
 
